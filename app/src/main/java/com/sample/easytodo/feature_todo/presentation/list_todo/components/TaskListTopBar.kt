@@ -21,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.sample.easytodo.core.util.TestTags
 
 @Composable
 @Preview
@@ -62,7 +61,6 @@ fun TaskListTopBar(
                 onClick = { filterClick() },
                 modifier = Modifier
                     .padding(8.dp)
-                    .testTag(TestTags.FILTER_BUTTON),
             ) {
                 Icon(imageVector = Icons.Default.FilterList, contentDescription = "Filter")
             }
