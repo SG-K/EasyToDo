@@ -13,5 +13,6 @@ object TestTags {
 
     const val TITLE_FIELD = "TITLE_FIELD"
     const val DESP_FIELD = "DESP_FIELD"
+    const val DESP_FIELD2 = "DESP_FIELD"
 
 }
