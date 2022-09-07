@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.sample.easytodo.core.util.TestTags
 import com.sample.easytodo.feature_todo.domain.model.TASK_STATUS
 import com.sample.easytodo.feature_todo.presentation.add_update_todo.AddUpdataToDoViewmodel
 import com.sample.easytodo.feature_todo.presentation.add_update_todo.AddUpdateTaskEvent
@@ -87,6 +88,7 @@ fun AddUpdateTaskScreen(
                 placeholder = { Text(text = titleState.hint) },
                 modifier = Modifier
                     .fillMaxWidth()
+                    .testTag(TestTags.TITLE_FIELD)
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -100,6 +102,7 @@ fun AddUpdateTaskScreen(
                 placeholder = { Text(text = descriptionState.hint) },
                 modifier = Modifier
                     .fillMaxWidth()
+                    .testTag(TestTags.DESP_FIELD)
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -110,6 +113,7 @@ fun AddUpdateTaskScreen(
                 RadioButton(
                     selected = statusState == TASK_STATUS.PENDING,
                     onClick = { viewModel.onEvent(AddUpdateTaskEvent.UpdatedTaskStatus(TASK_STATUS.PENDING)) },
+                    modifier = Modifier.testTag(TestTags.RADIO_PENDING)
                 )
                 Text(
                     text = "Pending",
@@ -131,6 +135,7 @@ fun AddUpdateTaskScreen(
                 RadioButton(
                     selected = statusState == TASK_STATUS.IN_PROGRESS,
                     onClick = {  viewModel.onEvent(AddUpdateTaskEvent.UpdatedTaskStatus(TASK_STATUS.IN_PROGRESS)) },
+                    modifier = Modifier.testTag(TestTags.RADIO_IN_PROGRESS)
                 )
                 Text(
                     text = "In Progress",
@@ -149,6 +154,7 @@ fun AddUpdateTaskScreen(
                 RadioButton(
                     selected = statusState == TASK_STATUS.DONE,
                     onClick = {  viewModel.onEvent(AddUpdateTaskEvent.UpdatedTaskStatus(TASK_STATUS.DONE)) },
+                    modifier = Modifier.testTag(TestTags.RADIO_DONE)
                 )
                 Text(
                     text = "Done",

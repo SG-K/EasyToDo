@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.sample.easytodo.core.util.TestTags
 import com.sample.easytodo.feature_todo.domain.model.TASK_STATUS
 import com.sample.easytodo.feature_todo.presentation.add_update_todo.AddUpdateTaskEvent
 import com.sample.easytodo.feature_todo.presentation.list_todo.components.TaskItem
@@ -103,6 +104,7 @@ fun TasksScreen(
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier
                         .fillMaxWidth()
+                        .testTag(TestTags.FILTER_SECTION)
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
@@ -112,6 +114,7 @@ fun TasksScreen(
                             onClick = { viewModel.onEvent(
                                 TasksEvent.Filter(
                                     TASK_STATUS.NONE)) },
+                            modifier = Modifier.semantics { contentDescription = TestTags.RADIO_NONE }
                         )
                         Text(
                             text = "All",
@@ -135,6 +138,7 @@ fun TasksScreen(
                             onClick = {  viewModel.onEvent(
                                 TasksEvent.Filter(
                                     TASK_STATUS.PENDING)) },
+                            modifier = Modifier.semantics { contentDescription = TestTags.RADIO_PENDING }
                         )
                         Text(
                             text = "Pending",
@@ -160,6 +164,7 @@ fun TasksScreen(
                             onClick = { viewModel.onEvent(
                                 TasksEvent.Filter(
                                     TASK_STATUS.IN_PROGRESS)) },
+                            modifier = Modifier.semantics { contentDescription = TestTags.RADIO_IN_PROGRESS }
                         )
                         Text(
                             text = "In Progress",
@@ -183,6 +188,7 @@ fun TasksScreen(
                             onClick = {  viewModel.onEvent(
                                 TasksEvent.Filter(
                                     TASK_STATUS.DONE)) },
+                            modifier = Modifier.semantics { contentDescription = TestTags.RADIO_DONE }
                         )
                         Text(
                             text = "Done",
@@ -216,6 +222,7 @@ fun TasksScreen(
                                                 "?taskId=${task.id}"
                                     )
                                 }
+                                .testTag(TestTags.TASK_ITEM)
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                     }
