@@ -34,7 +34,7 @@ class AddTaskTest{
     private fun `Add tasks`(){
         val tasksToInsert = mutableListOf<Task>()
 
-        ('a' .. 'd').forEachIndexed { index, data ->
+        ('a' .. 'e').forEachIndexed { index, data ->
             tasksToInsert.add(
                 Task(
                     title = "$data",
@@ -55,7 +55,7 @@ class AddTaskTest{
     private fun `Get all tasks`() = runBlocking{
         val filterType = TASK_STATUS.NONE
         val tasksByStatus = getTasks.invoke(filterType).first()
-        Truth.assertThat(tasksByStatus.size).isEqualTo(4)
+        Truth.assertThat(tasksByStatus.size).isEqualTo(5)
     }
 
 
