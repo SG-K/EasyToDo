@@ -1,4 +1,4 @@
-#EasyToDo - Android Task Management App
+# EasyToDo - Android Task Management App
 
 EasyToDo is a straightforward Android application designed for managing tasks. It offers essential features such as adding, updating, and deleting tasks, along with the ability to filter tasks based on their status. The primary objective of this application is to provide a practical example of writing unit, integrated, and end-to-end test cases. Notably, it focuses on testing Jetpack Compose components, which make up the app's user interface.
 
